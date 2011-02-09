@@ -261,10 +261,10 @@ class BaseioEditableContentActions extends sfActions
     $this->pk = $request->getParameter('pk');
 
     $this->formClass = $request->getParameter('form', $this->model.'Form');
-    
+
     $this->formPartial = $request->getParameter('form_partial', 'ioEditableContent/formFields');
-    $this->fields = (array)$request->getParameter('fields', array());
-    
+    $this->fields = $request->getParameter('fields') ? $request->getParameter('fields') : array();
+
     // if default values is empty, it would look like a legitimate string. this defaults it to empty array
     $this->default_values = $request->getParameter('default_values') ? $request->getParameter('default_values') : array();
 
